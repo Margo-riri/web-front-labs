@@ -43,6 +43,21 @@ h2 {
     font-size: 35px;
 }
 
-.link {
+a:link {
     text-decoration: none;
-  }
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+    color: rgb(141, 141, 141);
+}
+a:hover {
+    color: rgb(128, 0, 0);
+    text-decoration: underline;
+    text-shadow: 10px 5px 5px #0003;
+    transition: 0.3s;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
+}
