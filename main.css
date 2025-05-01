@@ -43,6 +43,12 @@ h2 {
     font-size: 35px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    transition: 1s 2s;
+}
+
 a:link {
     text-decoration: none;
     color: black;
@@ -54,7 +60,6 @@ a:visited {
 a:hover {
     color: rgb(128, 0, 0);
     text-decoration: underline;
-    text-shadow: 10px 5px 5px #0003;
     transition: 0.3s;
 }
 a:active {
