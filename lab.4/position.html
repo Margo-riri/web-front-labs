@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        div {
+            width: 300px;
+            line-height: 70px;
+            height: 70px;
+            text-align: center;
+            background-color: white;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            z-index: 1;
+            position: relative;
+        }
+        .position-relative {
+            position: relative;
+            left: 120px;
+            top: -130px;
+            z-index: 0;
+
+        }
+        .position-relative:hover {
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+        .position-absolute {
+            position: absolute;
+            left: 300px;
+        }
+        .position-absolute:hover {
+            position: absolute;
+            font-size: 20px;
+            height: 72px;
+            width: 320px;
+            background-color: rgb(255, 131, 131);
+            border: 2px solid rgb(48, 24, 36);
+            box-shadow: 5px 5px 5px #0004;
+            cursor: pointer;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute">absolute</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
