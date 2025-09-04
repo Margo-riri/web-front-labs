@@ -17,6 +17,18 @@
             let result = a + b;
             alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
         }
+
+            function showAuthor() {
+            let author = 'Автор страницы:\nРазмахнина Маргарита Михайловна'
+            alert(author);
+        }
+
+            function showFooter() {
+            let hi = 'Приветствую вас на своей странице!'
+            alert(hi);
+        }
+
+
     </script>
     <style>
         .message {
@@ -31,6 +43,13 @@
             cursor: pointer;
             margin: 5px;
         }
+        header {
+            cursor: pointer;
+        }
+        footer {
+           cursor: pointer;
+        }
+
      </style>
 
 </head>
@@ -43,13 +62,13 @@
 
    
     <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-    <div class="message">Узнать, кто автор страницы</div>
+    <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
 
     </main>
 
 
     <footer ondblclick="showFooter()">
-        &copy; Витлева Анастасия, ФБИ-31, 2 курс, 2025
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
     </footer>
 </body>
 </html>
