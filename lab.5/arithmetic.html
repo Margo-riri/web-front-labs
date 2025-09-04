@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+        function showSum() {
+            let inputA = document.getElementById('numberA')
+            let inputB = document.getElementById('numberB')
+            let a = 5154;
+            let b = 7891;
+            let result = a + b;
+            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+        }
+    </script>
+    <style>
+        .message {
+            display: inline-block;
+            width: 300px;
+            height: 30px;
+            border: 2px solid rgb(139, 10, 38);
+            border-radius: 10px;
+            background-color: rgb(255, 223, 175);
+            color: black;
+            padding: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+     </style>
+
+</head>
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+
+   
+    <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+    <div class="message">Узнать, кто автор страницы</div>
+
+    </main>
+
+
+    <footer ondblclick="showFooter()">
+        &copy; Витлева Анастасия, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
