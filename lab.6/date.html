@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+        function showDate() {
+            let out = document.getElementById('current-date');
+            let today = new Date();
+            out.innerHTML = 'Дата и время для русской локали: ' + today.toLocaleString('ru-RU');
+
+            let outEs = document.getElementById('current-dateEs');
+            outEs.innerHTML = 'Дата и время для испанской локали: ' + today.toLocaleString('es-ES');
+
+            let outUs = document.getElementById('current-dateUs');
+            outUs.innerHTML = 'Дата и время для локали США: ' + today.toLocaleString('en-US');
+
+            let outIt = document.getElementById('current-dateIt');
+            outIt.innerHTML = 'Дата и время для итальянской локали: ' + today.toLocaleString('it-IT');
+
+            let outDe = document.getElementById('current-dateDe');
+            outDe.innerHTML = 'Дата и время для немецкой локали: ' + today.toLocaleString('de-DE');
+
+            let outFr = document.getElementById('current-dateFr');
+            outFr.innerHTML = 'Дата и время для французской локали: ' + today.toLocaleString('fr-FR');
+        }
+
+        function ChangeColors() {
+            const header = document.getElementsByTagName('header')[0];
+            const rgb = `rgb(${Math.random() * 225}, ${Math.random() * 225}, ${Math.random() * 225})`;
+            header.style.color = rgb;
+        }
+
+        let timerNum;
+
+        function startChangeColors() {
+            ChangeColors();
+            timerNum = setInterval(ChangeColors, 1000);
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('stop-btn').disabled = false;
+        }
+
+        function stopChangeColors() {
+            clearInterval(timerNum);
+            document.getElementById('start-btn').disabled = false;
+            document.getElementById('stop-btn').disabled = true;
+        }
+        let dateTimer;
+        function startDateUpdate() {
+            showDate();
+            dateTimer = setInterval(showDate, 1000);
+            document.getElementById('start-date-btn').disabled = true;
+            document.getElementById('stop-date-btn').disabled = false;
+        }
+
+        function stopDateUpdate() {
+            clearInterval(dateTimer);
+            document.getElementById('start-date-btn').disabled = false;
+            document.getElementById('stop-date-btn').disabled = true;
+        }
+    </script>
+    <style>
+        div {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #1891f5;
+            background-color: rgb(195, 216, 243);
+            color: black;
+            border-radius: 10px;
+        }
+        header {
+            transition: color 0.5s;
+        }
+    </style>
+</head>
+<body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1>Дата и время по странам</h1>
+        <div id="current-date"></div>
+        <div id="current-dateEs"></div>
+        <div id="current-dateUs"></div>
+        <div id="current-dateIt"></div>
+        <div id="current-dateDe"></div>
+        <div id="current-dateFr"></div>
+        <div>
+            <button onclick="startChangeColors()" id="start-btn">Старт</button>
+            <button onclick="stopChangeColors()" disabled id="stop-btn">Стоп</button>
+        </div>
+        <div>
+            <button onclick="startDateUpdate()" id="start-date-btn">Обновлять время</button>
+            <button onclick="stopDateUpdate()" disabled id="stop-date-btn">Остановить обновление времени</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
