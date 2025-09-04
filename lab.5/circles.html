@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+        function hideCircle(elem) {
+            elem.classList.add('hidden');
+        }
+    
+        function resetCircles() {
+            const circles = document.querySelectorAll('.circle');
+            circles.forEach(c => c.classList.remove('hidden'));
+        }
+    </script>
+    <style>
+        main {
+            position: relative;
+            height: 100vh;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            position: absolute;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .hidden {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            padding: 0;
+        }
+
+        #resetBtn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button-box {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="button-box">
+            <button id="resetBtn" onclick="resetCircles()">Восстановить круги</button>
+        </div>
+
+        <div class="circle" id="c1" style="background-color: rgb(50, 66, 205); top: 50%; left: 10%;" onclick="hideCircle(this)">1</div>
+        <div class="circle" id="c2" style="background-color: rgb(219, 22, 22); top: 10%; left: 80%;" onclick="hideCircle(this)">2</div>
+        <div class="circle" id="c3" style="background-color: rgb(204, 38, 93); top: 50%; left: 70%;" onclick="hideCircle(this)">3</div>
+        <div class="circle" id="c4" style="background-color: lightgray; top: 30%; left: 25%;" onclick="hideCircle(this)">4</div>
+        <div class="circle" id="c5" style="background-color: rgb(50, 66, 205); top: 70%; left: 80%;" onclick="hideCircle(this)">5</div>
+        <div class="circle" id="c6" style="background-color: #ff5370; top: 30%; left: 60%;" onclick="hideCircle(this)">6</div>
+        <div class="circle" id="c7" style="background-color: coral; top: 60%; left: 15%;" onclick="hideCircle(this)">7</div>
+        <div class="circle" id="c8" style="background-color: rgb(114, 119, 119); top: 38%; left: 40%;" onclick="hideCircle(this)">8</div>
+        <div class="circle" id="c9" style="background-color: rgb(77, 192, 238); top: 25%; left: 10%;" onclick="hideCircle(this)">9</div>
+        <div class="circle" id="c10" style="background-color: rgb(219, 22, 22); top: 5%; left: 45%;" onclick="hideCircle(this)">10</div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
