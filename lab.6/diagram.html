@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Маргарита. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+        function showDiagram() {
+            let data = [36,86,55,28,92,60,41,17,9,43];
+            let colors = ['#D8BFD8', '#DDA0DD', '#EE82EE', '#FF00FF', '#BA55D3', '#9370DB', '#8A2BE2', '#9400D3', '#483D8B', '#4B0082']
+            let bars = document.getElementsByClassName('bar');
+            const diagHeight = document.getElementById('diag').clientHeight;
+            const maxData = Math.max(...data);
+            const k = diagHeight / maxData * 0.9;
+            for(let i = 0; i < data.length; i++) {
+                bars[i].style.height = k*data[i] + 'px';
+            }
+            for(let i = 0; i < colors.length; i++) {
+                bars[i].style.backgroundColor = colors[i];
+                bars[i].textContent = data[i];
+                bars[i].style.display = 'flex';
+                bars[i].style.justifyContent = 'center';
+                bars[i].style.color = 'black';
+            }
+        }
+    </script>
+    <style>
+        .bar {
+            background-color: rgb(0, 0, 0);
+            width: 50px;
+            height: 500px;
+            margin: 5px;
+            border: 2px solid #000000;
+        }
+        #diag {
+            background-color: white;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            border: 5px solid #410734;
+            margin: 0 auto; 
+            width: 700px;
+        }
+    </style>
+</head>
+<body onload="showDiagram()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h1 style="text-align: center;">Диаграмма</h1>
+        <div id="diag">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
