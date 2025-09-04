@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+        function calculateTotal() {
+            const prices = {
+                apples: 100,
+                pears: 80,
+                oranges: 150,
+                melons: 300,
+                bananas: 130
+            };
+    
+            const apples = parseInt(document.getElementById('apples').value) || 0;
+            const pears = parseInt(document.getElementById('pears').value) || 0;
+            const oranges = parseInt(document.getElementById('oranges').value) || 0;
+            const melons = parseInt(document.getElementById('melons').value) || 0;
+            const bananas = parseInt(document.getElementById('bananas').value) || 0;
+    
+            const total = apples * prices.apples + pears * prices.pears + oranges * prices.oranges +
+                          melons * prices.melons + bananas * prices.bananas;
+    
+            document.getElementById('total').innerText = 'Общая цена: ' + total + ' р';
+        }
+    
+        function clearCart() {
+            document.getElementById('apples').value = '';
+            document.getElementById('pears').value = '';
+            document.getElementById('oranges').value = '';
+            document.getElementById('melons').value = '';
+            document.getElementById('bananas').value = '';
+            document.getElementById('total').innerText = '';
+        }
+    </script>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cart {
+            background-color: #bbecff;
+            padding: 30px;
+            border: 2px solid #7e0a23;
+            border-radius: 10px;
+            width: 300px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #000;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 10px;
+            color: #000;
+
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 7px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 7px;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        #total {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div class="cart">
+            <h2>Корзина товаров</h2>
+        
+            <label>Яблоки (100р/шт):</label>
+            <input type="number" id="apples" min="0" placeholder="Сколько яблок надо?">
+        
+            <label>Груши (80р/шт):</label>
+            <input type="number" id="pears" min="0" placeholder="Сколько груш надо?">
+        
+            <label>Апельсины (150р/шт):</label>
+            <input type="number" id="oranges" min="0" placeholder="Сколько апельсинов надо?">
+        
+            <label>Дыни (300р/шт):</label>
+            <input type="number" id="melons" min="0" placeholder="Сколько дынь надо?">
+        
+            <label>Бананы (130р/шт):</label>
+            <input type="number" id="bananas" min="0" placeholder="Сколько бананов надо?">
+        
+            <button onclick="calculateTotal()">Рассчитать</button>
+            <button onclick="clearCart()">Очистить</button>
+        
+            <div id="total"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
