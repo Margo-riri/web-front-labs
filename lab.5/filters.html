@@ -52,6 +52,12 @@
             document.getElementById('saturateImage').style.filter = 'saturate(' + value + ')';
         }
 
+        function sepiaChange() {
+            let value = document.getElementById('sepiaValue').value + '%';
+            document.getElementById('sepiaOutput').innerText = value;
+            document.getElementById('sepiaImage').style.filter = 'sepia(' + value + ')';
+        }        
+
     </script>
     <style>
         div {
@@ -116,6 +122,13 @@
             <span id="saturateOutput"></span>
         </div>
         <div><img src='https://i.pinimg.com/736x/55/61/26/55612649d166cc05653023eaee641a8a.jpg' id='saturateImage'></div>
+
+        <div>
+           Фильтр sepia:
+            <input type="range" min="0" max="100" value='0' onchange="sepiaChange()" id="sepiaValue">
+            <span id="sepiaOutput"></span>
+        </div>
+        <div><img src='https://i.pinimg.com/1200x/94/d8/b5/94d8b5d7b1be5b61a77a8a17cb4ab2c5.jpg' id='sepiaImage'></div>
     </main>
 
     <footer>
