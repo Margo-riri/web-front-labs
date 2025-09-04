@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+
+    <script>
+        function showMutipleTable() {
+            let tbl = document.getElementById('mtable');
+            let multiple = parseInt(document.getElementById('numberA').value) || 7;
+            let first = parseInt(document.getElementById('numberB').value) || 1;
+            let last = parseInt(document.getElementById('numberC').value) || 10;
+            
+            // Меняем местами первое и конечное число, когда first > last
+            if (first > last) {
+                [first, last] = [last, first]; 
+            }
+            
+            tbl.innerHTML = '<h1>Таблица умножения</h1>';
+            for(let i = first; i <= last; i++) {
+                tbl.innerHTML += `<div>${i} × ${multiple} = ${i * multiple}</div>`;
+            }
+        }
+    </script>
+    <style>
+        #mtable {
+            width: 500px;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            border: 2px solid;
+            margin: auto;
+            margin-bottom: 10px;
+            color: black;
+        }
+    </style>
+</head>
+<body onload="showMutipleTable()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div id="mtable"></div>
+        <label>Умножить на: <input type="number" value="7" id="numberA"></label><br>
+        <label>Начать с: <input type="number" value="1" id="numberB"></label><br>
+        <label>Закончить на: <input type="number" value="10" id="numberC"></label><br>
+        <input type="button" value="Таблица" onclick="showMutipleTable()">
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
