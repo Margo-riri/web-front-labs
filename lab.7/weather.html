@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        #weather-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: rgb(90, 6, 6);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #weather-btn:disabled {
+            background-color: #ccc;
+            color: #000000;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        #weather-info {
+            border: 2px solid rgb(139, 38, 38);
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #e2acc3;
+            max-width: 500px;
+            margin: 20px auto;
+            font-size: 18px;
+        }
+
+        #weather-info span {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function getWeather() {
+            document.getElementById('weather-btn').disabled = true;
+
+            const url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const times = data.hourly.time;
+                    const temps = data.hourly.temperature_2m;
+
+                    const today = new Date().toISOString().slice(0, 10);
+
+                    const hours = ["08:00", "12:00", "20:00"];
+                    let output = `<p>Температура в Новосибирске на <span>${today}</span>:</p><ul>`;
+
+                    for (let hour of hours) {
+                        const timeLabel = `${today}T${hour}`;
+                        const index = times.indexOf(timeLabel);
+
+                        if (index !== -1) {
+                            output += `<li><span>${hour}</span> — <span>${temps[index]}°C</span></li>`;
+                        } else {
+                            output += `<li><span>${hour}</span> — <span>данные недоступны</span></li>`;
+                        }
+                    }
+
+                    output += "</ul>";
+                    document.getElementById("weather-info").innerHTML = output;
+                    document.getElementById("weather-info").style.display = "block";
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <h1>Прогноз погоды в Новосибирске</h1>
+        <button id="weather-btn" onclick="getWeather()">Узнать температуру</button>
+        <div id="weather-info" style="display: none;"></div>
+        <p style="text-align: center; margin-top: 30px;">
+            Источник данных:
+            <a href="https://open-meteo.com/" target="_blank">
+                open-meteo.com
+            </a>
+        </p>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
