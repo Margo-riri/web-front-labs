@@ -37,6 +37,14 @@
                 </li>
             </ul>
             <hr>
+
+            <h2>Калькулятор</h2>
+            <input v-model="a">
+            +
+            <input v-model="b">
+            <button @click="sum">=</button>
+            <span>{{ result }}</span>
+
         </div>
 
     </main>
@@ -60,6 +68,9 @@
                     },
 
                     flowers: ['роза', 'тюльпан', 'маргаритка', 'георгин', 'одуванчик'],
+                    a: 1,
+                    b: 10,
+                    result: '',
                 }
             },
             methods: {
@@ -74,9 +85,12 @@
                     this.flowers[id] = 'сохранение...';
                     setTimeout(() => {
                         this.flowers[id] = newName;
-                    }, 3000);
-
-                },               
+                    }, 3000); 
+                
+                }, 
+                sum() {
+                    this.result = this.a + this.b;
+                },              
             }
 
        }).mount('#app');
