@@ -1,0 +1,43 @@
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        
+        .shape {
+            width: 400px;
+            height: 400px;
+            background-color: #ec2460;
+            display:flex;
+            align-self: auto;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            transition: border-radius 0.5s ease;
+        }
+    </style>
+<body>
+    <div class="shape" id="shape">квадрат</div>
+
+    <script>
+        const shape = document.getElementById('shape');
+        
+        shape.addEventListener('click', function() {
+            if (shape.tc == 'квадрат') {
+    
+                shape.style.borderRadius = '50%';
+                shape.tc = 'круг';
+            } 
+            else {
+                shape.style.borderRadius = '0';
+                shape.tc = 'квадрат';
+            }
+        });
+    </script>
+</body>
+</html>

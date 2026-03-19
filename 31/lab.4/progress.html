@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        
+        .block1 {
+            position: relative;
+            border: 3px solid black;
+            border-radius: 20px;
+            background-color: rgb(250, 221, 233);
+            color: black;
+            font-size: 30px;
+            font-weight: normal;
+            width: 500px;
+            max-width: 90%;
+            height: 200px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+            z-index: 3;
+        }
+
+        .block2 {
+            border: 2px solid rgb(156, 13, 71);
+            background-color: rgb(241, 223, 235);
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            width: 250px;
+            height: 35px;
+            top: -150px;
+            position: relative;
+            margin: 0 auto;
+            z-index: 4;
+        }
+
+        .bar {
+            position: relative;
+            width: 0px;
+            height: 35px;
+            background-color: rgb(156, 13, 71);
+            z-index: 5;
+        }
+
+        .button {
+            border: 2px solid rgb(156, 13, 71);
+            background-color: rgb(241, 223, 235);
+            color: rgb(0, 0, 0);
+            width: 250px;
+            height: 20px;
+            padding: 10px;
+            padding-top: 10px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgb(0, 0, 0);
+            position: relative;
+            margin: 0 auto;
+            top: -100px;
+            z-index: 4;
+        }
+
+        div.button:hover {
+            box-shadow: 0 0 10px rgb(255, 95, 175);
+            cursor: pointer;
+        }
+
+        div.button:active {
+            box-shadow: none;
+        }
+
+        .act:active .bar {
+            width: 200px;
+            z-index: 5;
+            transition: width 5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4.
+    </header>
+    
+    <main>
+        <div class="block1">Степень прогресса</div>
+        <div class="act">
+            <div class="block2"> 
+                <div class="bar"></div> 
+            </div>
+            <div class="button">Нажмите и удерживайте</div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2023
+    </footer>
+</body>
+</html>

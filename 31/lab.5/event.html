@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        #block {
+            height: 200px;
+            width: 200px;
+            border: 1px solid;
+            background-color: rgb(211, 252, 207);
+            cursor: crosshair;
+            text-align: center;
+            padding: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function showCoords() {
+            let x = this.event.x;
+            let y = this.event.y;
+            let div = document.getElementById('block');
+            
+            div.innerHTML = '<b>x</b> = ' + x + 'px<br><b>y</b> = ' + y + 'px';
+             
+            if(this.event.ctrlKey) {
+                 div.style.color = 'blue';
+                 div.innerHTML += '<br><i>Нажата клавиша Ctrl</i>';
+             }
+             else {
+                div.style.color = 'black';
+             }
+
+             if(this.event.altKey) {
+                 div.style.backgroundColor = 'lightblue';
+                 div.innerHTML += '<br><i>Нажата клавиша Alt</i>';
+             } 
+             else {
+                div.style.backgroundColor = 'aliceblue';
+             }
+
+             if(this.event.shiftKey) {
+                 div.style.borderColor = 'blue';
+                 div.style.borderWidth = '3px';
+                 div.innerHTML += '<br><i>Нажата клавиша Shift</i>';
+             }
+             else {
+                 div.style.borderColor = 'black';
+                 div.style.borderWidth = '1px';
+             }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <div id="block" onmousemove="showCoords()"></div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-31, 2 курс, 2025
+    </footer>
+</body>
+</html>
