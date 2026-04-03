@@ -4,7 +4,21 @@ body {
     font-family: 'Arial';
     margin: 10px;
 }
-
+main {
+    margin: 10px 20px 45px;
+    
+}
+footer {
+    background-color: rgb(207, 22, 69);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 16px;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
 a {
     color: black;
     text-decoration: none;
