@@ -4,3 +4,22 @@ body {
     font-family: 'Arial';
     margin: 10px;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: rgb(141, 141, 141);
+}
+a:hover {
+    color: rgb(128, 0, 0);
+    text-decoration: underline;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
+}
