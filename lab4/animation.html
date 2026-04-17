@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Карточки</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+        .card {
+            width: 200px;
+            height: 250px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .card .info {
+            padding: 0 10px;
+            font-size: 12px;
+            color: #666;
+            display: none;
+        }
+        .card:hover {
+            width: 280px;
+            height: 350px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .card:hover .info {
+            display: block;
+        }
+        .card:hover h3 {
+            color: #e10600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 4
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card">
+                <img src="https://image.kazanexpress.ru/cfam1m790as668o1i1dg/t_product_high.jpg" alt="Red Bull Racing">
+                <h3>Red Bull Racing</h3>
+                <div class="info">
+                    <p>Основана: 2005</p>
+                    <p>Пилоты: Макс Ферстаппен, Исак Хаджар</p>
+                    <p>Чемпионаты (пилоты): 8</p>
+                    <p>Кубки конструкторов: 6</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://ir.ozone.ru/s3/multimedia-1-v/8694586795.jpg" alt="Mercedes">
+                <h3>Mercedes-AMG</h3>
+                <div class="info">
+                    <p>Основана: 1954</p>
+                    <p>Пилоты: Джордж Расселл, Кими Антонелли</p>
+                    <p>Чемпионаты (пилоты): 9</p>
+                    <p>Кубки конструкторов: 8</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/6d/0c/fb/6d0cfbd80462af5494b2a9613eb087e9.jpg" alt="Ferrari">
+                <h3>Ferrari</h3>
+                <div class="info">
+                    <p>Основана: 1950</p>
+                    <p>Пилоты: Шарль Леклер, Льюис Хэмилтон</p>
+                    <p>Чемпионаты (пилоты): 15</p>
+                    <p>Кубки конструкторов: 16</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/1b/5d/14/1b5d145a2279719a9e8239530c194406.jpg?nii=t" alt="McLaren">
+                <h3>McLaren</h3>
+                <div class="info">
+                    <p>Основана: 1963</p>
+                    <p>Пилоты: Ландо Норрис, Оскар Пиастри</p>
+                    <p>Чемпионаты (пилоты): 13</p>
+                    <p>Кубки конструкторов: 10</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/30/63/d2/3063d21d487cd6b6b9f5c7661641d954.jpg" alt="Aston Martin">
+                <h3>Aston Martin</h3>
+                <div class="info">
+                    <p>Основана: 2021</p>
+                    <p>Пилоты: Фернандо Алонсо, Лэнс Стролл</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://avatars.mds.yandex.net/i?id=3b4ea2c950b3c8da4c1e3709b601f492_l-13084016-images-thumbs&n=13" alt="Alpine">
+                <h3>Alpine</h3>
+                <div class="info">
+                    <p>Основана: 2021</p>
+                    <p>Пилоты: Пьер Гасли, Франко Колапинто</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/474x/a0/a1/3d/a0a13d53c47ff20b4534550e03a3be3a.jpg?nii=t" alt="Williams">
+                <h3>Williams</h3>
+                <div class="info">
+                    <p>Основана: 1977</p>
+                    <p>Пилоты: Алекс Албон, Карлос Сайнс</p>
+                    <p>Чемпионаты (пилоты): 7</p>
+                    <p>Кубки конструкторов: 9</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/474x/a3/7f/12/a37f12d803e8113f3699917ae2e7f3ae.jpg?nii=t" alt="Haas">
+                <h3>Haas F1 Team</h3>
+                <div class="info">
+                    <p>Основана: 2016</p>
+                    <p>Пилоты: Эстебан Окон, Оливер Берман</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/46/fa/31/46fa3117f6b6d8d0426fddd0aed85d2e.jpg" alt="Audi">
+                <h3>Audi F1 Team</h3>
+                <div class="info">
+                    <p>Основана: 2026</p>
+                    <p>Пилоты: Нико Хюлькенберг, Габриэль Бортолето</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://play-lh.googleusercontent.com/_lcxk9HQF_HtOCnYyBGR6pBDyt6oqQ2RT4cN2BibnTBeQ1uNbT8HWKlAr3fFCgVTp2r9TRnHbwLf_8pBDcAB" alt="RB">
+                <h3>Racing Bulls</h3>
+                <div class="info">
+                    <p>Основана: 2024</p>
+                    <p>Пилоты: Лиам Лоусон, Арвид Линдблад</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://fbi.cults3d.com/uploaders/41446188/illustration-file/824144c9-da78-4abd-aebe-aad2ce3a349d/CADILLAC-F1-TEAM.jpg" alt="Cadillac">
+                <h3>Cadillac F1 Team</h3>
+                <div class="info">
+                    <p>Основана: 2026</p>
+                    <p>Пилоты: Серхио Перес, Валттери Боттас</p>
+                    <p>Чемпионаты (пилоты): 0</p>
+                    <p>Кубки конструкторов: 0</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-44, 2 курс, 2026
+    </footer>
+</body>
+</html>
