@@ -15,6 +15,16 @@
             let b = 7891;
             let result = a + b; 
             alert ('Сумма' + a + ' и ' + b + 'равна'+ result);
+        
+        }
+        function showAuthor() {
+            let author = 'Автор страницы:\nРазмахнина Маргарита Михайловна'
+            alert(author);
+        
+        }
+        function HI() {
+            let hi = 'Приветствую вас на своей странице!';
+            alert(hi);
         }
     </script> 
     <style>
@@ -40,11 +50,11 @@
 
     <main>
         <div class="message" ondblclick="showSum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
 
 
-    <footer ondblclick="showFooter()">
+    <footer style="cursor: pointer;" ondblclick="HI()">
         &copy; Размахнина Маргарита, ФБИ-44, 2 курс, 2026
     </footer>
 </body>
