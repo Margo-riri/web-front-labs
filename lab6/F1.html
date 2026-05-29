@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайловна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <style>
+        main {
+            padding: 20px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .pilot-btn {
+            background-color: #785081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        
+        .pilot-btn:hover {
+            transform: scale(1.05);
+            background-color: #4c0402;
+        }
+        
+        .info-card {
+            background-color: #f9e7ff;
+            border: 2px solid #7e0a23;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .info-card h2 {
+            color: #7e0a23;
+            margin-top: 0;
+        }
+        
+        .info-card p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        
+        .info-card img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #7e0a23;
+        }
+        
+        .empty {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            padding: 40px;
+            background-color: #eba5f8;
+            border: 2px solid #7e0a23;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <h2>Пилоты Формулы 1 2026</h2>
+        
+        <div class="buttons" id="buttons-container"></div>
+        
+        <div id="info-container"></div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-44, 2 курс, 2026
+    </footer>
+
+    <script src="F1.js"></script>
+    <script>
+        const buttonsContainer = document.getElementById('buttons-container');
+        const infoContainer = document.getElementById('info-container');
+        
+        function showInfo(index) {
+            const pilot = pilots[index];
+            
+            infoContainer.innerHTML = `
+                <div class="info-card">
+                    <img src="${pilot.photo}" alt="${pilot.name}" onerror="this.src='https://via.placeholder.com/200x150/cccccc/666666?text=No+Image'">
+                    <h2>${pilot.name}</h2>
+                    <p><strong>Команда:</strong> ${pilot.team}</p>
+                    <p><strong>Страна:</strong> ${pilot.country}</p>
+                    <p><strong>Возраст:</strong> ${pilot.age} лет</p>
+                    <p><strong>Чемпионств:</strong> ${pilot.championships}</p>
+                </div>
+            `;
+        }
+
+        for(let i = 0; i < pilots.length; i++) {
+            const button = document.createElement('button');
+            button.textContent = pilots[i].name;
+            button.className = 'pilot-btn';
+            button.onclick = function() {
+                showInfo(i);
+            };
+            buttonsContainer.appendChild(button);
+        }
+        
+        infoContainer.innerHTML = '<div class="empty">Нажмите на кнопку, чтобы увидеть информацию о пилоте</div>';
+    </script>
+</body>
+</html>
