@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Размахнина Маргарита Михайлоана. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="../favicon-16x16.png">
+    <script>
+
+        const prices = [2080.00, 1989.00, 1875.50, 1905.00, 1810.50, 1757.50, 1785.00, 1797.50, 1809.00, 1800.50];
+        const dates = [
+            '01.05.2026', '05.05.2026', '07.05.2026', '09.05.2026', '12.05.2026',
+            '14.05.2026', '16.05.2026', '19.05.2026', '21.05.2026', '25.05.2026'
+        ];
+
+        function showStockData() {
+            const table = document.getElementById('stock-table');
+            const tbody = table.querySelector('tbody');
+            const summary = document.getElementById('summary');
+            tbody.innerHTML = '';
+
+            let sum = 0;
+            let max = prices[0];
+            let min = prices[0];
+
+            for (let i = 0; i < prices.length; i++) {
+                const tr = document.createElement('tr');
+                const tdDate = document.createElement('td');
+                const tdPrice = document.createElement('td');
+                const tdDiff = document.createElement('td');
+
+                tdDate.textContent = dates[i];
+                tdPrice.textContent = prices[i].toFixed(2);
+
+                if (i === 0) {
+                    tdDiff.textContent = '–';
+                    tdDiff.className = 'neutral';
+                } else {
+                    const diff = (prices[i] - prices[i - 1]).toFixed(2);
+                    tdDiff.textContent = diff > 0 ? `+${diff}` : diff;
+                    tdDiff.className = diff > 0 ? 'positive' : (diff < 0 ? 'negative' : 'neutral');
+                }
+
+                sum += prices[i];
+                if (prices[i] > max) max = prices[i];
+                if (prices[i] < min) min = prices[i];
+
+                tr.appendChild(tdDate);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdDiff);
+                tbody.appendChild(tr);
+            }
+
+            const average = (sum / prices.length).toFixed(2);
+            summary.innerHTML = `
+                Средняя стоимость: <strong>${average} руб</strong><br>
+                Максимальная стоимость: <strong>${max.toFixed(2)} руб</strong><br>
+                Минимальная стоимость: <strong>${min.toFixed(2)} руб</strong>
+            `;
+
+            table.style.display = 'table';
+            summary.style.display = 'block';
+            document.getElementById('stock-btn').disabled = true;
+        }
+    </script>
+    <style>
+        #stock-btn {
+            margin: 15px 0;
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: rgb(38, 139, 51);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #stock-btn:disabled {
+            background-color: rgb(185, 162, 162);
+            cursor: not-allowed;
+        }
+
+        #stock-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-size: 16px;
+            text-align: center;
+            display: none;
+        }
+
+        #stock-table th, #stock-table td {
+            border: 1px solid rgb(139, 38, 38);
+            padding: 8px 12px;
+        }
+
+        .positive {
+            color: green;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: red;
+            font-weight: bold;
+        }
+
+        .neutral {
+            color: black;
+        }
+
+        #summary {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            display: none;
+            background-color: #f1ebeb;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #9b0808;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <h1>Котировки компании "Лента"</h1>
+        <button id="stock-btn" onclick="showStockData()">Курс акций Лента</button>
+        <table id="stock-table">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Цена, руб</th>
+                    <th>Изменение</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="summary"></div>
+    </main>
+
+    <footer>
+        &copy; Размахнина Маргарита, ФБИ-44, 2 курс, 2026
+    </footer>
+
+</body>
+</html>
