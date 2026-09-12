@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request, redirect
+from flask import Flask, redirect, url_for, request,created
 import datetime
 app = Flask(__name__) 
 
@@ -64,3 +64,15 @@ def counter():
 @app.route('/info')
 def info():
     return redirect("/author")
+
+@lab1.route("/created")
+def created():
+    return '''
+<!doctype html>
+<html>
+    <body>
+       <h1> Создано успешно </h1>
+       <div><i>что-то создано...</i></div>
+    </body>
+</html>
+''', 201
