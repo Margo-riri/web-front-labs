@@ -17,6 +17,11 @@
         3258 - 759 = {{ 3258 - 759 }}<br>
         8452 / 793 = {{ 8452 / 793 }}<br>
         45<sup>8</sup> = {{ 45**8 }}<br>
+        <ul>
+            {% for f in fruits %}
+            <li>{{ loop.index }} - {{ f.name }}: {{ f.price }} &#8381;</li>
+            {% endfor %}
+        </ul>
     </main>
 
     <footer>
@@ -26,8 +31,16 @@
         {% else %}
             Анонимус,
         {% endif %} 
-        {{ group }},
-        {{ course }} курс,
+        {% if group %}
+            {{ group }},
+        {% else %}
+            Ясельная группа,
+        {% endif %}  
+        {% if course %}
+            {{ course }} курс,
+        {% else %}
+            Первый класс,
+        {% endif %} 
         2026
     </footer>
     
