@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f0f2f5;
+    background: #E8BFC5;
     margin: 0;
     padding: 20px;
     min-height: 100vh;
 }
 
 header {
-    background: #a84a6e;
+    background: #205C32;
     color: white;
     padding: 20px;
     text-align: center;
@@ -26,7 +26,7 @@ main {
 }
 
 footer {
-    background: #a84a69;
+    background: #205C32;
     color: white;
     text-align: center;
     padding: 15px;
