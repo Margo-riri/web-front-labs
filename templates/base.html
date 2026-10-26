@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Размахнина Маргарита. {% block lab %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon-64x64.png') }}">
+    <title>Размахнина Маргарита. {% block lab %}{% endblock %}</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='lab1/main.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='lab2/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='lab2/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='lab2/favicon-64x64.png') }}">
+    <style>
+        body, main {
+            color: {{ request.cookies.get('color', '#000000') }};
+            background-color: {{ request.cookies.get('bg_color', '#ffffff') }};
+            font-size: {{ request.cookies.get('font_size', '16px') }};
+            font-family: {{ request.cookies.get('font_family', 'Arial, sans-serif') }};
+            margin: 0;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <header>

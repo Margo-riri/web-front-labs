@@ -94,8 +94,8 @@ def author():
 
 @lab1.route("/lab1/image")
 def image():
-    path = url_for("static", filename="funny_dog.jpg")
-    style = url_for("static", filename="lab1.css")
+    path = url_for("static", filename="lab1/funny_dog.jpg")
+    style = url_for("static", filename="lab1/lab1.css")
 
     return '''
 <!doctype html>

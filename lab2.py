@@ -53,7 +53,7 @@ def add_flower_no_name():
 
 @lab2.route('/lab2/all_flowers')
 def all_flowers():
-    return render_template("flowers.html", flowers=flowers)
+    return render_template("lab2/flowers.html", flowers=flowers)
 
 
 @lab2.route("/lab2/del_flower/<int:flower_id>")
@@ -83,7 +83,7 @@ def example():
             {'name':'мандарины', 'price': 95},
             {'name':'манго', 'price': 321},
         ]
-    return render_template('example.html',
+    return render_template('lab2/example.html',
                            name=name,
                            number=number,
                            group=group,
@@ -93,13 +93,13 @@ def example():
 
 @lab2.route('/lab2')
 def lab2_home():
-    return render_template('lab2.html')
+    return render_template('lab2/lab2.html')
 
 
 @lab2.route('/lab2/filters')
 def filters():
     phrase = 'О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных...'
-    return render_template('filter.html', phrase = phrase)
+    return render_template('lab2/filter.html', phrase = phrase)
 
 
 @lab2.route('/lab2/clear_flowers')
@@ -162,35 +162,34 @@ books = [
 
 @lab2.route('/lab2/books')
 def show_books():
-    return render_template('books.html', books=books)
+    return render_template('lab2/books.html', books=books)
 
 f1_drivers = [
-    {"name": "Ландо Норрис", "desc": "Британский гонщик McLaren, чемпион мира Формулы-1 2025 года.", "image": "nor.jpg"},
-    {"name": "Оскар Пиастри", "desc": "Австралийский гонщик McLaren, один из сильнейших молодых пилотов чемпионата.", "image": "pia.jpg"},
-    {"name": "Джордж Расселл", "desc": "Британский гонщик Mercedes, победитель Гран-при и один из лидеров команды.", "image": "rus.jpg"},
-    {"name": "Кими Антонелли", "desc": "Итальянский гонщик Mercedes, молодой талант, дебютировавший в Формуле-1 в 2025 году.", "image": "ant.jpg"},
-    {"name": "Макс Ферстаппен", "desc": "Нидерландский гонщик Red Bull, четырёхкратный чемпион мира Формулы-1.", "image": "ver.jpg"},
-    {"name": "Айзек Хаджар", "desc": "Французский гонщик Red Bull, дебютировавший в Формуле-1 в 2025 году.", "image": "had.jpg"},
-    {"name": "Шарль Леклер", "desc": "Монегасский гонщик Ferrari, известный скоростью на квалификационных кругах.", "image": "lec.jpg"},
-    {"name": "Льюис Хэмилтон", "desc": "Британский гонщик Ferrari, семикратный чемпион мира Формулы-1.", "image": "ham.jpg"},
-    {"name": "Алекс Албон", "desc": "Тайско-британский гонщик Williams, регулярно борющийся за очки.", "image": "alb.jpg"},
-    {"name": "Карлос Сайнс", "desc": "Испанский гонщик Williams, победитель нескольких Гран-при Формулы-1.", "image": "sai.jpg"},
-    {"name": "Арвид Линдблад", "desc": "Британский гонщик Racing Bulls, дебютант сезона Формулы-1 2026 года.", "image": "lin.jpg"},
-    {"name": "Лиам Лоусон", "desc": "Новозеландский гонщик Racing Bulls, выступающий в чемпионате мира Формулы-1.", "image": "law.jpg"},
-    {"name": "Лэнс Стролл", "desc": "Канадский гонщик Aston Martin, выступающий в Формуле-1 с 2017 года.", "image": "str.jpg"},
-    {"name": "Фернандо Алонсо", "desc": "Испанский гонщик Aston Martin, двукратный чемпион мира Формулы-1.", "image": "alo.jpg"},
-    {"name": "Эстебан Окон", "desc": "Французский гонщик Haas, победитель Гран-при Венгрии 2021 года.", "image": "oco.jpg"},
-    {"name": "Оливер Берман", "desc": "Британский гонщик Haas, молодой пилот, дебютировавший в Формуле-1 в 2024 году.", "image": "ber.jpg"},
-    {"name": "Нико Хюлькенберг", "desc": "Немецкий гонщик Audi, опытный пилот с многолетней карьерой в Формуле-1.", "image": "hul.jpg"},
-    {"name": "Габриэль Бортолето", "desc": "Бразильский гонщик Audi, чемпион Формулы-2 2024 года.", "image": "bor.jpg"},
-    {"name": "Пьер Гасли", "desc": "Французский гонщик Alpine, победитель Гран-при Италии 2020 года.", "image": "gas.jpg"},
-    {"name": "Франко Колапинто","desc": "Аргентинский гонщик Alpine, дебютировавший в Формуле-1 в 2024 году.", "image": "col.jpg"},
-    {"name": "Серхио Перес", "desc": "Мексиканский гонщик Cadillac, победитель нескольких Гран-при Формулы-1.", "image": "per.jpg"},
-    {"name": "Валттери Боттас", "desc": "Финский гонщик Cadillac, победитель десяти Гран-при Формулы-1.", "image": "bot.jpg"},
+    {"name": "Ландо Норрис", "desc": "Британский гонщик McLaren, чемпион мира Формулы-1 2025 года.", "image": "lab2/nor.jpg"},
+    {"name": "Оскар Пиастри", "desc": "Австралийский гонщик McLaren, один из сильнейших молодых пилотов чемпионата.", "image": "lab2/pia.jpg"},
+    {"name": "Джордж Расселл", "desc": "Британский гонщик Mercedes, победитель Гран-при и один из лидеров команды.", "image": "lab2/rus.jpg"},
+    {"name": "Кими Антонелли", "desc": "Итальянский гонщик Mercedes, молодой талант, дебютировавший в Формуле-1 в 2025 году.", "image": "lab2/ant.jpg"},
+    {"name": "Макс Ферстаппен", "desc": "Нидерландский гонщик Red Bull, четырёхкратный чемпион мира Формулы-1.", "image": "lab2/ver.jpg"},
+    {"name": "Айзек Хаджар", "desc": "Французский гонщик Red Bull, дебютировавший в Формуле-1 в 2025 году.", "image": "lab2/had.jpg"},
+    {"name": "Шарль Леклер", "desc": "Монегасский гонщик Ferrari, известный скоростью на квалификационных кругах.", "image": "lab2/lec.jpg"},
+    {"name": "Льюис Хэмилтон", "desc": "Британский гонщик Ferrari, семикратный чемпион мира Формулы-1.", "image": "lab2/ham.jpg"},
+    {"name": "Алекс Албон", "desc": "Тайско-британский гонщик Williams, регулярно борющийся за очки.", "image": "lab2/alb.jpg"},
+    {"name": "Карлос Сайнс", "desc": "Испанский гонщик Williams, победитель нескольких Гран-при Формулы-1.", "image": "lab2/sai.jpg"},
+    {"name": "Арвид Линдблад", "desc": "Британский гонщик Racing Bulls, дебютант сезона Формулы-1 2026 года.", "image": "lab2/lin.jpg"},
+    {"name": "Лиам Лоусон", "desc": "Новозеландский гонщик Racing Bulls, выступающий в чемпионате мира Формулы-1.", "image": "lab2/law.jpg"},
+    {"name": "Лэнс Стролл", "desc": "Канадский гонщик Aston Martin, выступающий в Формуле-1 с 2017 года.", "image": "lab2/str.jpg"},
+    {"name": "Фернандо Алонсо", "desc": "Испанский гонщик Aston Martin, двукратный чемпион мира Формулы-1.", "image": "lab2/alo.jpg"},
+    {"name": "Эстебан Окон", "desc": "Французский гонщик Haas, победитель Гран-при Венгрии 2021 года.", "image": "lab2/oco.jpg"},
+    {"name": "Нико Хюлькенберг", "desc": "Немецкий гонщик Audi, опытный пилот с многолетней карьерой в Формуле-1.", "image": "lab2/hul.jpg"},
+    {"name": "Габриэль Бортолето", "desc": "Бразильский гонщик Audi, чемпион Формулы-2 2024 года.", "image": "lab2/bor.jpg"},
+    {"name": "Пьер Гасли", "desc": "Французский гонщик Alpine, победитель Гран-при Италии 2020 года.", "image": "lab2/gas.jpg"},
+    {"name": "Франко Колапинто","desc": "Аргентинский гонщик Alpine, дебютировавший в Формуле-1 в 2024 году.", "image": "lab2/col.jpg"},
+    {"name": "Серхио Перес", "desc": "Мексиканский гонщик Cadillac, победитель нескольких Гран-при Формулы-1.", "image": "lab2/per.jpg"},
+    {"name": "Валттери Боттас", "desc": "Финский гонщик Cadillac, победитель десяти Гран-при Формулы-1.", "image": "lab2/bot.jpg"},
 ]
 
 
 @lab2.route('/lab2/drivers')
 def drivers():
-    return render_template("drivers.html", drivers=f1_drivers)
+    return render_template("lab2/drivers.html", drivers=f1_drivers)
 
