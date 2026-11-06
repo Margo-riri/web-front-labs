@@ -182,3 +182,50 @@ def weather():
         return render_template('lab4/weather.html', temp=temp, message=msg, type='hot')
     else:
         return render_template('lab4/weather.html', error='Ошибка: температура вне диапазона!')
+
+@lab4.route('/lab4/concrete', methods=['GET', 'POST'])
+def concrete():
+    prices = {
+        'М200': 4200,
+        'М300': 4800,
+        'М400': 5400,
+        'М500': 6100
+    }
+
+    if request.method == 'GET':
+        return render_template('lab4/concrete.html', prices=prices)
+
+    concrete_type = request.form.get('concrete')
+    volume = request.form.get('volume')
+
+    # проверка объёма
+    if not volume:
+        return render_template('lab4/concrete.html', prices=prices, error='Ошибка: не указан объём!')
+    try:
+        volume = float(volume)
+    except ValueError:
+        return render_template('lab4/concrete.html', prices=prices, error='Ошибка: объём должен быть числом!')
+
+    if volume <= 0:
+        return render_template('lab4/concrete.html', prices=prices, error='Ошибка: объём должен быть больше нуля!')
+    if volume > 100:
+        return render_template('lab4/concrete.html', prices=prices, error='Такого объёма сейчас нет в наличии!')
+
+    # расчёт стоимости
+    price_per_m3 = prices.get(concrete_type, 0)
+    total = price_per_m3 * volume
+    discount_text = None
+
+    if volume > 10:
+        discount = total * 0.1
+        total -= discount
+        discount_text = f'Применена скидка 10% за большой объём (−{discount:,.0f} руб).'.replace(',', ' ')
+
+    return render_template(
+        'lab4/concrete.html',
+        prices=prices,
+        concrete_type=concrete_type,
+        volume=volume,
+        total=total,
+        discount_text=discount_text
+    )
