@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block lab %}Погода{% endblock %}
+{% block main %}
+<h1>Погода</h1>
+<p>Введите температуру (в °C):</p>
+<form method="post" class="weather-form">
+    <input type="number" name="temperature" placeholder="10">
+    <button type="submit">Узнать погоду</button>
+</form>
+
+{% if error %}
+    <p class="error">{{ error }}</p>
+{% elif message is defined %}
+    <p class="success {{ type }}">{{ message }}</p>
+    <p>Введённая температура: {{ temp }}°C</p>
+{% endif %}
+
+<style>
+.weather-form {
+    background: #f5faff;
+    padding: 20px;
+    border-radius: 12px;
+    width: fit-content;
+    margin-top: 10px;
+}
+.weather-form input {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+}
+.weather-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.weather-form button:hover {
+    background-color: #0056b3;
+}
+.error {
+    color: #d60000;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+.success {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.success.very-cold { color: #00387c; }
+.success.cold      { color: #4fa7ff; }
+.success.cool      { color: #00c864; }
+.success.warm      { color: #e97e14; }
+.success.hot       { color: #d60000; }
+</style>
+{% endblock %}

@@ -143,3 +143,42 @@ def login():
 def logout():
     session.pop('login', None)
     return redirect('/lab4/login')
+
+@lab4.route('/lab4/weather', methods=['GET', 'POST'])
+def weather():
+    if request.method == 'GET':
+        return render_template('lab4/weather.html')
+
+    temp = request.form.get('temperature')
+
+    if temp == '' or temp is None:
+        return render_template('lab4/weather.html', error='Ошибка: не задана температура')
+
+    try:
+        temp = int(temp)
+    except ValueError:
+        return render_template('lab4/weather.html', error='Ошибка: введите число')
+
+    if temp < -30:
+        msg = 'Слишком холодно'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='cold')
+    elif temp > 30:
+        msg = 'Слишком жарко'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='hot')
+    elif -30 <= temp <= 15:
+        msg = f'Очень холодно. Температура: {temp}°C'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='very-cold')
+    elif -16 <= temp <= 0:
+        msg = f'Холодно. Температура: {temp}°C'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='cold')
+    elif 1 <= temp <= 15:
+        msg = f'Прохладно. Температура: {temp}°C'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='cool')
+    elif 16 <= temp <= 25:
+        msg = f'Тепло. Температура: {temp}°C'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='warm')
+    elif 26 <= temp <= 30:
+        msg = f'Жарко. Температура: {temp}°C'
+        return render_template('lab4/weather.html', temp=temp, message=msg, type='hot')
+    else:
+        return render_template('lab4/weather.html', error='Ошибка: температура вне диапазона!')
